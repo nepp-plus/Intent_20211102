@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
 //            버튼이 눌리면 > OtherActivity로 이동하자. (화면 전환)
 
 //            Intent로 어디서 출발 / 어디로 도착하는지 정보 설정. => 변수에 저장.
-            val myIntent = Intent( this, OtherActivity::class.java )
+            val myIntent = Intent(this, OtherActivity::class.java)
 //            출발/도착 정보를 가지고 이동
-            startActivity( myIntent )
+            startActivity(myIntent)
 
 
         }
@@ -33,10 +33,10 @@ class MainActivity : AppCompatActivity() {
 
 //            메시지 화면으로 이동. Intent 활용
             val myIntent = Intent(this, ViewMessageActivity::class.java)
-            
+
 //            필요 데이터를 첨부하는 코드
             myIntent.putExtra("message", inputMessage)
-            
+
             startActivity(myIntent)
 
         }
@@ -45,11 +45,10 @@ class MainActivity : AppCompatActivity() {
 
 //            닉네임을 변경하기 위한 화면 이동. (Intent 3 예시)
 
-            val myIntent = Intent( this, EditNicknameActivity::class.java )
+            val myIntent = Intent(this, EditNicknameActivity::class.java)
 
 //            넘어갔다가 (어떤 데이터)를 들고 "돌아올것이다" 명시.
-            startActivityForResult( myIntent, REQ_CODE_FOR_NICKNAME )
-
+            startActivityForResult(myIntent, REQ_CODE_FOR_NICKNAME)
 
 
         }
@@ -67,10 +66,10 @@ class MainActivity : AppCompatActivity() {
         Log.d("리퀘스트코드", requestCode.toString())
 
 //        닉네임을 가지러 다녀온게 맞는가?
-        if ( requestCode == REQ_CODE_FOR_NICKNAME ) {
+        if (requestCode == REQ_CODE_FOR_NICKNAME) {
 
 //            확인이 눌린게 맞는가?
-            if ( resultCode == RESULT_OK ) {
+            if (resultCode == RESULT_OK) {
 
 //                담아준 결과용 Intent => data 에 담겨있다. => "nick" 으로 이름붙인 String을 꺼내주자.
                 val newNickname = data?.getStringExtra("nick")
